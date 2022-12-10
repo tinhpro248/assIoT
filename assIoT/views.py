@@ -1,5 +1,5 @@
 from django.http import HttpResponse, JsonResponse
-from .models import Humidity, Temperature, Notification
+from .models import Humidity, Temperature
 
 
 def index(request):
