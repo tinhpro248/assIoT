@@ -5,8 +5,10 @@ from .models import Humidity, Temperature
 def index(request):
     return HttpResponse("Đây là server ass IoT nhóm 2")
 
-def setTemperature(request, min, max):
+def setTemperature(request):
     t = Temperature.objects.get(id=1)
+    min = request.GET['min']
+    max = request.GET['max']
     t.min = float(min)
     t.max = float(max)
     t.save()
@@ -16,8 +18,10 @@ def getTemperature(request):
     t = Temperature.objects.get(id=1)
     return JsonResponse(t.get())
 
-def setHumidity(request, min, max):
+def setHumidity(request):
     t = Humidity.objects.get(id=1)
+    min = request.GET['min']
+    max = request.GET['max']
     t.min = float(min)
     t.max = float(max)
     t.save()
